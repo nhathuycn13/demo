@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:utext="#{message.hello}"></title>
+</head>
+<body>
+<a th:href="@{/login1?lang=en}">Login (English)</a>
+&nbsp;|&nbsp;
+<a th:href="@{/login1?lang=vi}">Login (Vietnamese)</a>
+<h1 th:utext="#{message.hello}"></h1>
+</body>
+</html>

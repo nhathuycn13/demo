@@ -1,0 +1,135 @@
+nohup: ignoring input
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.3)
+
+2021-08-12 09:06:48.586  INFO 8879 --- [           main] com.example.BootApplication              : Starting BootApplication v0.0.1-SNAPSHOT using Java 11.0.11 on nhathuycn13 with PID 8879 (/home/nhathuycn13/Documents/workspaces/java/demo/target/demo-0.0.1-SNAPSHOT.jar started by nhathuycn13 in /home/nhathuycn13/Documents/workspaces/java/demo)
+2021-08-12 09:06:48.589  INFO 8879 --- [           main] com.example.BootApplication              : No active profile set, falling back to default profiles: default
+2021-08-12 09:06:49.484  INFO 8879 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-12 09:06:49.574  INFO 8879 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 2 JPA repository interfaces.
+2021-08-12 09:06:50.061  INFO 8879 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@51fadaff' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-08-12 09:06:50.062  INFO 8879 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityConfigurer' of type [com.example.config.auth.MethodSecurityConfigurer$$EnhancerBySpringCGLIB$$6ace6c78] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-08-12 09:06:50.067  INFO 8879 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-08-12 09:06:50.477  INFO 8879 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6868 (http)
+2021-08-12 09:06:50.491  INFO 8879 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-12 09:06:50.491  INFO 8879 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-12 09:06:50.559  INFO 8879 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-08-12 09:06:50.559  INFO 8879 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1913 ms
+2021-08-12 09:06:50.641  WARN 8879 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+2021-08-12 09:06:50.883  INFO 8879 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-12 09:06:50.956  INFO 8879 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-12 09:06:51.115  INFO 8879 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-12 09:06:51.262  INFO 8879 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-12 09:06:51.266  WARN 8879 --- [           main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-12 09:06:51.644  INFO 8879 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-12 09:06:51.665  INFO 8879 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+Hibernate: drop table if exists roles
+Hibernate: drop table if exists users
+Hibernate: drop table if exists users_roles
+Hibernate: create table roles (id bigint not null auto_increment, name varchar(255), primary key (id)) engine=MyISAM
+Hibernate: create table users (id bigint not null auto_increment, avatar varchar(255), created_at datetime, email varchar(255) not null, name varchar(255), password varchar(255), update_at datetime, primary key (id)) engine=MyISAM
+Hibernate: create table users_roles (user_id bigint not null, role_id bigint not null, primary key (user_id, role_id)) engine=MyISAM
+Hibernate: alter table users_roles add constraint FKj6m8fwv7oqv74fcehir1a9ffy foreign key (role_id) references roles (id)
+Hibernate: alter table users_roles add constraint FK2o0jvgh89lemvvo17cbqvdxaa foreign key (user_id) references users (id)
+2021-08-12 09:06:52.605  INFO 8879 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-12 09:06:52.614  INFO 8879 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_
+Hibernate: select role0_.id as id1_0_, role0_.name as name2_0_ from roles role0_
+Hibernate: select role0_.id as id1_0_0_, role0_.name as name2_0_0_ from roles role0_ where role0_.id=?
+Hibernate: insert into roles (name) values (?)
+Hibernate: select role0_.id as id1_0_0_, role0_.name as name2_0_0_ from roles role0_ where role0_.id=?
+Hibernate: insert into roles (name) values (?)
+Hibernate: insert into users (avatar, created_at, email, name, password, update_at) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into users_roles (user_id, role_id) values (?, ?)
+2021-08-12 09:06:54.653  INFO 8879 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2703d91, org.springframework.security.web.context.SecurityContextPersistenceFilter@cedee22, org.springframework.security.web.header.HeaderWriterFilter@4debbf0, org.springframework.web.filter.CorsFilter@5be052ca, org.springframework.security.web.authentication.logout.LogoutFilter@2b6a0ea9, com.example.config.filter.JwtAuthenticationFilter@3bec5821, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@233db8e9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e13f304, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2007435e, org.springframework.security.web.session.SessionManagementFilter@5a917723, org.springframework.security.web.access.ExceptionTranslationFilter@1f2f0109, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5a97b17c]
+2021-08-12 09:06:55.202  INFO 8879 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-12 09:06:55.755  INFO 8879 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6868 (http) with context path ''
+2021-08-12 09:06:55.770  INFO 8879 --- [           main] com.example.BootApplication              : Started BootApplication in 7.728 seconds (JVM running for 8.352)
+2021-08-12 09:07:29.321  INFO 8879 --- [nio-6868-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-12 09:07:29.322  INFO 8879 --- [nio-6868-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-12 09:07:29.323  INFO 8879 --- [nio-6868-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:07:29.524  WARN 8879 --- [nio-6868-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:07:30.863  WARN 8879 --- [nio-6868-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:07:31.460  WARN 8879 --- [nio-6868-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:07:31.668  WARN 8879 --- [nio-6868-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:07:31.903  WARN 8879 --- [io-6868-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:07:50.380  INFO 8879 --- [nio-6868-exec-4] c.e.c.filter.JwtAuthenticationFilter     : null
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:07:50 INFO AuthController: com.example.controller.AuthController login - {
+  "id": 1,
+  "email": "admin",
+  "password": "$2a$10$MFCykATLoFFlq3TRHNVybOvtuf7Oa7MJ/9pTGoDHcb32ZOsOtCBx.",
+  "roles": [
+    {}
+  ]
+}
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+2021-08-12 09:07:52.368  INFO 8879 --- [nio-6868-exec-5] c.e.c.filter.JwtAuthenticationFilter     : null
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:07:52 INFO AuthController: com.example.controller.AuthController login - {
+  "id": 1,
+  "email": "admin",
+  "password": "$2a$10$MFCykATLoFFlq3TRHNVybOvtuf7Oa7MJ/9pTGoDHcb32ZOsOtCBx.",
+  "roles": [
+    {}
+  ]
+}
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:08:04.557  INFO 8879 --- [io-6868-exec-10] c.e.c.filter.JwtAuthenticationFilter     : null
+2021-08-12 09:08:05.758  INFO 8879 --- [nio-6868-exec-1] c.e.c.filter.JwtAuthenticationFilter     : null
+2021-08-12 09:08:05.941  INFO 8879 --- [nio-6868-exec-2] c.e.c.filter.JwtAuthenticationFilter     : null
+2021-08-12 09:08:06.125  INFO 8879 --- [nio-6868-exec-4] c.e.c.filter.JwtAuthenticationFilter     : null
+2021-08-12 09:08:06.329  INFO 8879 --- [nio-6868-exec-5] c.e.c.filter.JwtAuthenticationFilter     : null
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+Hibernate: select user0_.id as id1_1_, user0_.avatar as avatar2_1_, user0_.created_at as created_3_1_, user0_.email as email4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.update_at as update_a7_1_ from users user0_ where user0_.email=?
+Hibernate: select roles0_.user_id as user_id1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2021-08-12 09:21:44 INFO  AuthController:38 - {
+  "id": 1,
+  "email": "admin",
+  "password": "$2a$10$qFyOm0ZEoQj5QD2eOs7yIe..sz7BzrCPcrsd77UWmKAZ99ou4EU.i",
+  "roles": [
+    {}
+  ]
+}
+2021-08-12 09:24:44 INFO  MainController:47 - ROLE_ADMIN
